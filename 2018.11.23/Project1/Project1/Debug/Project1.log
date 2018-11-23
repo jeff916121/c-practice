@@ -1,0 +1,2 @@
+﻿callbyaddress.obj : error LNK2005: _main 已在 callarraycpp.obj 中定義過了
+C:\Users\張道寬\Desktop\Github\c++practice\2018.11.23\Project1\Debug\Project1.exe : fatal error LNK1169: 找到有一或多個已定義的符號
