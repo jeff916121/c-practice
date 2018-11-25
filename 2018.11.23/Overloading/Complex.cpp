@@ -1,65 +1,41 @@
+//Complex.cpp
 #include "Complex.h"
-#include <iostream>
-
 
 Complex::Complex()
+	:real{ 0 }, img{ 0 }
 {
-	std::cout <<"invoke default no arg constructor" << std::endl;
-	real = 0;
-	img = 0;
-	
 }
 
-Complex::Complex(int a, int b)
-	:real(a),img(b)//initialization list
+Complex::Complex(int real, int img)
+	: real{ real }, img{ img }
 {
-	std::cout << "invoke args constructor" << std::endl;
-	
 }
-
 
 Complex::~Complex()
 {
 }
 
-Complex Complex::operator+(const Complex & c) const
+Complex Complex::operator+(const Complex &c2) const
 {
-	Complex cc{ this->real + c.real,this->img + c.img };
-	return cc;
+	return Complex(this->real + c2.real, this->img + c2.img);
+}
+
+Complex Complex::operator-(const Complex &c2) const
+{
+	return Complex(this->real - c2.real, this->img - c2.img);
 }
 
 Complex Complex::operator-() const
 {
-	return Complex(-this->real,-this->img);
-
+	return Complex(-this->real, -this->img);
 }
 
-//Complex Complex::operator-(const Complex & c) const
-//{
-//	return Complex(this->real-c.real,this->img-c.img);
-//
-//}
-
-
-
-void Complex::display()
+int Complex::getReal() const
 {
-	std::cout << this->real << "+(" <<(*this).img << ")i" << std::endl;
+	return this->real;
 }
 
-//Complex operator+(Complex & lhs, Complex & rhs)
-//{
-//	return Complex{lhs.real+rhs.real,lhs.img+rhs.img};
-//}
-
-Complex operator-(Complex & lhs, Complex & rhs)
+int Complex::getImg() const
 {
-	return Complex(lhs.real-rhs.real,lhs.img-rhs.img);
-
-}
-
-Complex operator-(Complex & c)
-{
-	return Complex(-c.real,-c.img);
-
+	return this->img;
 }
