@@ -1,4 +1,4 @@
-//Complexadder.cpp
+//main.cpp
 #include <iostream>
 
 #include "Complex.h"
