@@ -41,7 +41,6 @@ int Complex::getImg() const
 {
 	return this->img;
 }
-
 void Complex::display()
 {
 	printf("complex = (%d) + (%d)i\n", this->getReal(), this->getImg());
