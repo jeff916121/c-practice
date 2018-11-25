@@ -15,4 +15,5 @@ public:
 	Complex operator-() const;
 	int getReal() const;
 	int getImg() const;
+	void display();
 };

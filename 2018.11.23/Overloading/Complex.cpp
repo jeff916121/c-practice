@@ -1,5 +1,7 @@
 //Complex.cpp
 #include "Complex.h"
+#include <iostream>
+using namespace std;
 
 Complex::Complex()
 	:real{ 0 }, img{ 0 }
@@ -38,4 +40,9 @@ int Complex::getReal() const
 int Complex::getImg() const
 {
 	return this->img;
+}
+
+void Complex::display()
+{
+	printf("complex = (%d) + (%d)i\n", this->getReal(), this->getImg());
 }
