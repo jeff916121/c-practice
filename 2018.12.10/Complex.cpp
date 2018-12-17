@@ -10,7 +10,6 @@ Complex::Complex()
 	: real{ 0 }, img{ 0 }, name{ nullptr }
 {
 	printf("invoke default no arg constructor\n");
-	delete[] this->name;
 	this->name = new char[1];
 	this->name[0] = '\0';
 }
@@ -18,7 +17,6 @@ Complex::Complex(int real, int img)
 	: real{ real }, img{ img }, name{ nullptr }
 {
 	printf("invoke args constructor\n");
-	delete[] this->name;
 	this->name = new char[1];
 	this->name[0] = '\0';
 
@@ -30,7 +28,6 @@ Complex::Complex(int real, int img, char * name)
 {
 	printf("invoke args constructor\n");
 	size_t size = strlen(name) + 1;
-	delete[] this->name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, name);
 
@@ -41,7 +38,6 @@ Complex::Complex(const Complex & rhs)
 {
 	printf("invoke copy constructor\n");
 	size_t size = strlen(rhs.name) + 1;
-	delete[] this->name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, rhs.name);
 }
