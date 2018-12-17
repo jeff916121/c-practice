@@ -41,6 +41,7 @@ Complex & Complex::operator=(const Complex & rhs)
 	this->real = rhs.real;
 	this->img = rhs.img;
 	size_t size = std::strlen(rhs.name) + 1;
+	delete[] this->name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, rhs.name);
 	return *this;
