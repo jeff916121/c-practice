@@ -7,9 +7,10 @@
 using namespace std;
 
 Complex::Complex()
-	: real{0},img{0}, name{ nullptr }
+	: real{ 0 }, img{ 0 }, name{ nullptr }
 {
 	printf("invoke default no arg constructor\n");
+	delete[] this->name;
 	this->name = new char[1];
 	this->name[0] = '\0';
 }
@@ -17,6 +18,7 @@ Complex::Complex(int real, int img)
 	: real{ real }, img{ img }, name{ nullptr }
 {
 	printf("invoke args constructor\n");
+	delete[] this->name;
 	this->name = new char[1];
 	this->name[0] = '\0';
 
@@ -24,20 +26,22 @@ Complex::Complex(int real, int img)
 
 
 Complex::Complex(int real, int img, char * name)
-	: real{real},img{img}, name{nullptr}
+	: real{ real }, img{ img }, name{ nullptr }
 {
 	printf("invoke args constructor\n");
 	size_t size = strlen(name) + 1;
+	delete[] this->name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, name);
-   
+
 }
 
 Complex::Complex(const Complex & rhs)
-	:real{rhs.real},img{rhs.img},name{nullptr}
+	:real{ rhs.real }, img{ rhs.img }, name{ nullptr }
 {
 	printf("invoke copy constructor\n");
 	size_t size = strlen(rhs.name) + 1;
+	delete[] this->name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, rhs.name);
 }
@@ -56,6 +60,7 @@ Complex & Complex::operator=(const Complex & rhs)
 	this->real = rhs.real;
 	this->img = rhs.img;
 	size_t size = strlen(rhs.name) + 1;
+	delete[] this -> name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, rhs.name);
 	return *this;
@@ -64,7 +69,7 @@ Complex & Complex::operator=(const Complex & rhs)
 Complex Complex::operator+(const Complex & rhs) const
 {
 	printf("invoke + operator\n");
-	return Complex{ this->real + rhs.real,this->img + rhs.img};
+	return Complex{ this->real + rhs.real,this->img + rhs.img };
 }
 
 void Complex::operator+=(const Complex & rhs)
@@ -77,7 +82,7 @@ void Complex::operator+=(const Complex & rhs)
 
 Complex Complex::add(const Complex & lhs, const Complex & rhs)
 {
-	
+
 	return Complex{ lhs.real + rhs.real, lhs.img + rhs.img };
 
 }
@@ -85,11 +90,12 @@ Complex Complex::add(const Complex & lhs, const Complex & rhs)
 void Complex::setName(char * name)
 {
 	size_t size = strlen(name) + 1;
+	delete[] this->name;
 	this->name = new char[size];
 	strcpy_s(this->name, size, name);
 }
 
 void Complex::display()
 {
-	printf("(%s) = (%d)+(%d)i\n",name,real,img);
+	printf("(%s) = (%d)+(%d)i\n", name, real, img);
 }

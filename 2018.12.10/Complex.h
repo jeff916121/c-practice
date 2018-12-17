@@ -1,5 +1,6 @@
 //Complex.h
 
+#pragma once
 class Complex
 {
 private:
@@ -10,10 +11,10 @@ private:
 public:
 	Complex();
 	Complex(int real, int img);
-	Complex(int real, int img,char * name);
-	Complex (const Complex & rhs);
+	Complex(int real, int img, char * name);
+	Complex(const Complex & rhs);
 	~Complex();
-	
+
 	Complex& operator=(const Complex & rhs);
 	Complex operator+(const Complex & rhs) const;
 	void operator+=(const Complex & rhs);

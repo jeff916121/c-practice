@@ -1,7 +1,7 @@
 //Source.cpp
-# include <iostream>
 
 # include "Complex.h"
+#include <iostream>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ int main() {
 
 	printf("Welcome to the Complex world\n");
 
-	
+
 	char c1Name[3] = "c1";
 	printf("Complex c1\n");
 	Complex c1;
@@ -18,24 +18,24 @@ int main() {
 	printf("c1.display()\n");
 	c1.display();
 	printf("\n");
-	
+
 	char c2Name[3] = "c2";
 	printf("Complex c2{3,5,c2Name}:\n");
-	Complex c2{3,5,c2Name};
+	Complex c2{ 3,5,c2Name };
 	printf("c2.display()\n");
 	c2.display();
 	printf("\n");
 
 	char c3Name[3] = "c3";
 	printf("Complex c3{7,-6,c3Name }\n");
-	Complex c3{7,-6,c3Name };
+	Complex c3{ 7,-6,c3Name };
 	printf("c3.display()\n");
 	c3.display();
 	printf("\n");
 
 	printf("Complex c4 = c2 + c3+ c2 + c3\n");
 	char c4Name[3] = "c4";
-	Complex c4 = c2 + c3+ c2 + c3;
+	Complex c4 = c2 + c3 + c2 + c3;
 	printf("c4.setName(c4Name)\n");
 	c4.setName(c4Name);
 	printf("c4.display()\n");
@@ -53,7 +53,7 @@ int main() {
 	printf("\n");
 
 	printf("c4+=c3\n");
-	c4 += c3 ;
+	c4 += c3;
 	printf("c4.display()\n");
 	c4.display();
 	printf("c3.display()\n");
