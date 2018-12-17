@@ -1,11 +1,11 @@
-
+//Bag.h
 
 #pragma once
 class Bag
 {
 protected:
 	int size;
-	int* array;
+	
 
 public:
 	Bag();

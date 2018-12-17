@@ -2,7 +2,9 @@
 
 #include <iostream>
 
-#include "Stack.h"
+#include "Bag.h"
+#include "StackBA.h"
+#include "Queue1.h"
 
 using namespace std;
 
@@ -10,7 +12,10 @@ int main() {
 
 	// initialize
 	Bag * bag;
-	Stack s1{ 5 };
+
+	//StackBA s1{ 5 };
+
+	Queue1 s1{ 5 };
 
 	bag = &s1;
 	bag->status();
