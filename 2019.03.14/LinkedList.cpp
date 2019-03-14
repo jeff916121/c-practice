@@ -1,17 +1,38 @@
+// LinkedList.cpp
+
 #include "LinkedList.h"
+
 #include <iostream>
 using namespace std;
 
+LinkedList::LinkedList()
+{
+}
+
+LinkedList::~LinkedList()
+{
+	if (head != nullptr) {
+		callOutDelete(head);
+	}
+}
+void LinkedList::callOutDelete(Node* ptr) {
+	if (ptr == nullptr) {
+		return;
+	}
+	callOutDelete(ptr->next);
+	delete ptr;
+	cout << "Hello" << endl;
+}
+
 void LinkedList::insertFirst(int data)
 {
-	if (head == nullptr) {
+	/*if (head == nullptr) {
 		head = new Node(data);
-		return; 
-	}
-	Node* first = new Node(data);
-	first->next = head;
-	head = first;
-
+		return;
+	}*/
+	Node* ptr = new Node(data);
+	ptr->next = head;
+	head = ptr;
 }
 
 void LinkedList::insertLast(int data)
@@ -20,48 +41,43 @@ void LinkedList::insertLast(int data)
 		head = new Node(data);
 		return;
 	}
-	insertLast(head,data);
+	insertLast(head, data);
 }
-void LinkedList::insertLast(Node* node,int data)
+
+void LinkedList::insertLast(Node* ptr, int data)
 {
-	if (node==nullptr) {
+	if (ptr->next == nullptr) {
+		ptr->next = new Node(data);
 		return;
 	}
-	if (node->next == nullptr) {
-		node->next = new Node(data);
-		return;
-	}
-	insertLast(node->next,data);
+	insertLast(ptr->next, data);
 }
 
 void LinkedList::deleteData(int data)
 {
-	// doesn't find it
 	if (head == nullptr) {
 		return;
 	}
-	// find it
 	if (head->data == data) {
-		head = head->next;
+		Node* temp = head->next;
+		delete head;
+		head = temp;
 		return;
 	}
-	// finding
 	deleteData(head,head->next, data);
 }
 
-void LinkedList::deleteData(Node* prior,Node* node,int data)
+void LinkedList::deleteData(Node* previous, Node* current,int data)
 {
-	// doesn't find it
-	if( node == nullptr ) {
+	if (current == nullptr) {
 		return;
 	}
-	// find it
-	if (node->data == data) {
-		prior->next = node->next;
+	if (current->data == data) {
+		previous->next = current->next;
+		delete current;
 		return;
 	}
-	// finding
-	deleteData(prior->next, prior->next->next,data);
+	deleteData(current,current->next, data);
 }
 
 void LinkedList::deleteLast()
@@ -69,41 +85,32 @@ void LinkedList::deleteLast()
 	if (head == nullptr) {
 		return;
 	}
-	if (head->next == nullptr) {
-		head = head->next;
-		return;
-	}
 	deleteLast(head);
 }
-void LinkedList::deleteLast(Node* node)
+
+void LinkedList::deleteLast(Node* ptr)
 {
-	if (node->next->next == nullptr) {
-		node->next = node->next->next;
+	if (ptr->next->next == nullptr) {
+		delete ptr->next;
+		ptr->next = nullptr;
 		return;
 	}
-	deleteLast(node->next);
+	deleteLast(ptr->next);
 }
 
 void LinkedList::traverse()
 {
-
 	traverse(head);
-	cout << endl;
+	std::cout << endl;
+	std::cout << endl;
 }
-void LinkedList::traverse(Node* node) {
-	if (node == nullptr) {
+
+void LinkedList::traverse(Node* ptr)
+{
+	if (ptr == nullptr) {
+		std::cout << endl;
 		return;
 	}
-	printf("%d ",node->data);
-	traverse(node->next);
-} 
-
-LinkedList::LinkedList()
-{
-}
-
-
-LinkedList::~LinkedList()
-{
-	delete head;
+	std::cout << ptr->data << " ";
+	traverse(ptr->next);
 }

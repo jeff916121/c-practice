@@ -1,11 +1,12 @@
+// Node.h
+
 #pragma once
 class Node
 {
 public:
-	Node * next;
+	Node* next;
 	int data;
 	Node();
 	Node(int data);
 	~Node();
 };
-

@@ -1,90 +1,75 @@
 // Source.cpp
+
 #include <iostream>
+
 #include "LinkedList.h"
 
 using namespace std;
 
-int main() {
 
-	LinkedList* l1 = new LinkedList();
+int main(){
 
-	// test insertFirst
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	LinkedList* list = new LinkedList();
 
-	cout << "deleteLast()" << endl;
-	l1->deleteLast();
+	std::cout << "deleteLast()" << endl;
+	list->deleteLast();
 
-	cout << "deleteData(1)" << endl;
-	l1->deleteData(1);
+	std::cout << "deleteData(2)" << endl;
+	list->deleteData(2);
 
-	cout << "insertFirst(1)" << endl;
-	l1->insertFirst(1);
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "insertFirst(1)" << endl;
+	list->insertFirst(1);
 
-	cout << "insertFirst(2)" << endl;
-	l1->insertFirst(2);
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "insertLast(3)" << endl;
+	list->insertLast(3);
 
-	cout << "deleteData(1)" << endl;
-	l1->deleteData(1);
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "insertFirst(2)" << endl;
+	list->insertFirst(2);
 
-	cout << "deleteData(3)" << endl;
-	l1->deleteData(3);
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "insertFirst(2)" << endl;
+	list->insertFirst(2);
 
-	cout << "deleteLast()" << endl;
-	l1->deleteLast();
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "deleteLast()" << endl;
+	list->deleteLast();
 
-	cout << "insertLast(1)" << endl;
-	l1->insertLast(1);
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "deleteData(2)" << endl;
+	list->deleteData(2);
 
-	cout << "insertLast(2)" << endl;
-	l1->insertLast(2);
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "deleteData(5)" << endl;
+	list->deleteData(5);
 
-	cout << "deleteLast()" << endl;
-	l1->deleteLast();
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
+	std::cout << "deleteData(1)" << endl;
+	list->deleteData(1);
 
-	cout << "deleteLast()" << endl;
-	l1->deleteLast();
+	std::cout << "traverse()" << endl;
+	list->traverse();
 
-	cout << "traverse()" << endl;
-	l1->traverse();
-
-	cout << "deleteLast()" << endl;
-	l1->deleteLast();
-
-	cout << "traverse()" << endl;
-	l1->traverse();
-
-	cout << "deleteLast()" << endl;
-	l1->deleteLast();
-
-	cout << "traverse()" << endl;
-	l1->traverse();
-
+	// list->~LinkedList();
 	system("pause");
 	return 0;
 }
